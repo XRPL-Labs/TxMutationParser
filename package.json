@@ -1,6 +1,6 @@
 {
   "name": "tx-mutation-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse XRPL transaction to context aware object for visual representation",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -62,7 +62,9 @@
     "parser"
   ],
   "nodemonConfig": {
-    "ignore": ["test/*"],
+    "ignore": [
+      "test/*"
+    ],
     "delay": 500
   }
 }
