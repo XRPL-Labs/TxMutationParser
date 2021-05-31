@@ -1,0 +1,68 @@
+{
+  "name": "tx-mutation-parser",
+  "version": "1.0.0",
+  "description": "Parse XRPL transaction to context aware object for visual representation",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "prepare": "npm run clean && npm run lint && npm run test && npm run build && npm run browserify",
+    "clean": "rm -rf dist",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "dev": "clear && npm run build && DEBUG=txmutation* nodemon --watch dist dist/samples/sample.js",
+    "browserify": "browserify -r ./dist/src/index.js:TxMutationParser -o dist/browser.js && npm run minify",
+    "minify": "cat dist/browser.js | terser --compress --mangle > dist/browser.min.js",
+    "test": "DEBUG=txmutation:tests* jest --ci",
+    "test-verbose": "DEBUG=txmutation:tests* jest --ci --verbose",
+    "lint": "eslint"
+  },
+  "files": [
+    "dist/src/**/*.js",
+    "dist/src/**/*.d.ts"
+  ],
+  "dependencies": {
+    "@types/lodash": "^4.14.161",
+    "@types/websocket": "^1.0.1",
+    "bignumber.js": "^9.0.1",
+    "debug": "^4.1.1",
+    "hash.js": "^1.1.7",
+    "lodash": "^4.17.20",
+    "ripple-address-codec": "^4.1.3",
+    "tslint-eslint-rules": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/jest": "^26.0.12",
+    "@types/node": "^12.12.55",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "browserify": "^16.5.2",
+    "eslint": "^7.27.0",
+    "jest": "^26.4.2",
+    "terser": "^5.3.4",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:XRPL-Labs/TxMutationParser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/XRPL-Labs/TxMutationParser/issues"
+  },
+  "homepage": "https://github.com/XRPL-Labs/TxMutationParser/#readme",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "keywords": [
+    "xrp",
+    "xrpl",
+    "xumm",
+    "transaction",
+    "tx",
+    "parser"
+  ],
+  "nodemonConfig": {
+    "ignore": ["test/*"],
+    "delay": 500
+  }
+}
