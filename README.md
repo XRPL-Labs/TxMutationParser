@@ -68,6 +68,8 @@ Now the `dist/browser.js` file will exist, for you to use in a browser.
 
 Alternatively you can get a [prebuilt](https://cdn.jsdelivr.net/gh/XRPL-Labs/TxMutationParser@main/dist/browser.js) / [prebuilt & minified](https://cdn.jsdelivr.net/gh/XRPL-Labs/TxMutationParser@main/dist/browser.min.js) version from Github.
 
+Sample: [jsfiddle.net/WietseWind/5937ykmx](https://jsfiddle.net/WietseWind/5937ykmx/)
+
 ## Scenario's (data contents)
 
 #### Event List (`eventList`, e.g. a list with transactions belonging to the context account)
