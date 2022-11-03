@@ -20,7 +20,7 @@ describe(`Regular Key signed, is regular key`, () => {
   });
 
   describe("Basic info", () => {
-    it("Own account: balance change count", async () => {
+    it("Own account: zero balance change count", async () => {
       expect(parsedTransaction.self.balanceChanges).toHaveLength(0);
     });
 

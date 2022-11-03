@@ -39,7 +39,7 @@ describe(`Partial payment sender`, () => {
       });
     });
 
-    it("contains (correct) `secondary` entry", async () => {
+    it("does not contain `secondary` entry", async () => {
       expect(Object.keys(parsedTransaction.eventList)).not.toContain(
         "secondary"
       );
