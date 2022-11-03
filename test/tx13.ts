@@ -20,7 +20,7 @@ describe(`Completely unrelated account`, () => {
   });
 
   describe("Basic info", () => {
-    it("Own account: two balance changes", async () => {
+    it("Own account: zero balance change count", async () => {
       expect(parsedTransaction.self.balanceChanges).toHaveLength(0);
     });
 
