@@ -178,6 +178,10 @@ const xrplValueToNft = (value) => {
     const data = String(Number(value)).split(/e/i);
     const finish = (returnValue) => {
         const unsignedReturnValue = returnValue.replace(/^\-/, "");
+        if (unsignedReturnValue.length > 83) {
+            // Too many tokens to be NFT-like as per XLS14d proposal
+            return false;
+        }
         if (data.length > 1 &&
             unsignedReturnValue.slice(0, 2) === "0." &&
             Number(data[1]) < -70) {
@@ -34452,10 +34456,10 @@ const significantBalanceChange = (balanceChanges, fee) => {
      * Fallback to default
      *  Possibly XRP sent, if so: exclude fee
      */
-    const fallback = balanceChanges[0];
-    if (fallback.currency === "XRP" &&
-        fallback.counterparty === "" &&
-        fallback.value.slice(0, 1) === "-" &&
+    const fallback = balanceChanges === null || balanceChanges === void 0 ? void 0 : balanceChanges[0];
+    if ((fallback === null || fallback === void 0 ? void 0 : fallback.currency) === "XRP" &&
+        (fallback === null || fallback === void 0 ? void 0 : fallback.counterparty) === "" &&
+        (fallback === null || fallback === void 0 ? void 0 : fallback.value.slice(0, 1)) === "-" &&
         fee) {
         return Object.assign(Object.assign({}, fallback), { value: Math.abs(Number(fallback.value)) === Math.abs(Number(fee))
                 ? fallback.value

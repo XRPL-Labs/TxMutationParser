@@ -46,12 +46,12 @@ const significantBalanceChange = (
    * Fallback to default
    *  Possibly XRP sent, if so: exclude fee
    */
-  const fallback = balanceChanges[0];
+  const fallback = balanceChanges?.[0];
 
   if (
-    fallback.currency === "XRP" &&
-    fallback.counterparty === "" &&
-    fallback.value.slice(0, 1) === "-" &&
+    fallback?.currency === "XRP" &&
+    fallback?.counterparty === "" &&
+    fallback?.value.slice(0, 1) === "-" &&
     fee
   ) {
     return {
