@@ -47,7 +47,7 @@ describe(`Regular 3 XRP sending`, () => {
       });
     });
 
-    it("doe snot contain `secondary` entry", async () => {
+    it("does not contain `secondary` entry", async () => {
       expect(Object.keys(parsedTransaction.eventList)).not.toContain(
         "secondary"
       );
